@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ID-to-3D: Expressive ID-guided 3D Heads via Score Distillation Sampling">
+  <meta name="keywords" content="ID-to-3D, ID-embeddings, Stable Diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ID-to-3D: Expressive ID-guided 3D Heads via Score Distillation Sampling</title>
+    <style>
+		.gif-row {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		.gif-container {
+			flex: 1 0 20%; /* This will allow 5 items in a row. Adjust as needed. */
+			margin: 0px;
+		}
+
+        .gif-name {
+            margin-top: 5px;
+        }
+
+        /* New style for centering the figure */
+        figure {
+            margin: 0 auto; /* This will center the figure */
+            width: fit-content; /* This will make the width of the figure fit its content */
+        }
+    </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ID-to-3D: Expressive ID-guided 3D Heads via Score Distillation Sampling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://francescababiloni.github.io/">Francesca Babiloni</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://alexlattas.com">Alexandros Lattas</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jiankangdeng.github.io/">Jiankang Deng</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.imperial.ac.uk/people/s.zafeiriou">Stefanos Zafeiriou</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Imperial College London, UK</span><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/FrancescaBabiloni/ID-to-3D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop has-text-centered">
+    <div class="hero-body">
+      <div class="content has-text-justified">
+        <p>
+          <b>TL;DR</b>: We introduce ID-to-3D, a new method to generate expressive and identity-consistent 3D human heads using a text prompt and a small set of 1-5 casually captured, in-the-wild, images of a subject, which:<br>
+          &nbsp;&nbsp;&nbsp;🔥 Generates ArcFace-conditioned 3D head assets using SDS<br>
+          &nbsp;&nbsp;&nbsp;🔥 Creates an identity-conditioned expressive representation for each subject, enabling up to 13 unique expressions<br>
+          &nbsp;&nbsp;&nbsp;🔥 Produces realistically plausible normals and albedo images from a small set of 3D assets
+        </p>
+      <video id="teaser" autoplay muted playsinline loop width="100%">
+        <source src="./static/videos/teaser video_FullQuality.mp4"
+                type="video/mp4">
+      </video>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose ID-to-3D, a method to generate identity- and text-guided 3D human heads with disentangled expressions, starting from even a single casually captured in-the-wild image of a subject. The foundation of our approach is anchored in compositionality, alongside the use of task-specific 2D diffusion models as priors for optimization. First, we extend a foundational model with a lightweight expression-aware and ID-aware architecture, and create 2D priors for geometry and texture generation, via fine-tuning only 0.2% of its available training parameters. Then, we jointly leverage a neural parametric representation for the expressions of each subject and a multi-stage generation of highly detailed geometry and albedo texture. This combination of strong face identity embeddings and our neural representation enables accurate reconstruction of not only facial features but also accessories and hair and can be meshed to provide render-ready assets for gaming and telepresence. Our results achieve an unprecedented level of identity-consistent and high-quality texture and geometry generation, generalizing to a "world" of unseen 3D identities, without relying on large 3D captured datasets of human assets.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+    <!-- Method overview. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+        <p>
+			Our method deploys a novel human parametric expression model in tandem with specialized geometry and albedo guidance, not only to create intricately detailed head avatars with realistic textures but also to achieve strikingly ID-consistent results across a wide range of expressions, setting a new benchmark in comparison to existing SDS techniques.
+        </p>
+        <div>
+            <img src="./static/images/pipeline.png" alt="method" style="display: block; margin-left: auto; margin-right: auto;" width="100%" >
+          </div>
+        <p>
+			Without having to rely on 3D captured datasets that are expensive to collect and typically biased, and without being constrained on a specific geometry template, our method can be employed by a broad range of subjects, with different features such as skin tone and hairstyle.
+        </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">ID-consistent generation</h2>
+         <div class="content has-text-centered">
+            <div class="gif-row">
+				<div class="gif-container">
+					<img src="./static/GIFs/Craig_Robinson_shaded_ours.gif" alt="GIF 1">
+					<div class="gif-name">Craig Robinson</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/GIFs/Florence_Pugh_shaded_ours.gif" alt="GIF 1">
+					<div class="gif-name">Florence Pugh</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/GIFs/Jason_Mamoa_shaded_ours.gif" alt="GIF 1">
+					<div class="gif-name">Jason Mamoa</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/GIFs/Mark_Ruffalo_shaded_ours.gif" alt="GIF 1">
+					<div class="gif-name">Mark Ruffalo</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/GIFs/Timothee_Chalamet_shaded_ours.gif" alt="GIF 1">
+					<div class="gif-name">Timothee Chalamet</div>
+				</div>
+			</div>
+			<div class="gif-row">
+				<!-- New image container for your picture -->
+				<div class="gif-container">
+					<img src="./static/images/references/Craig_Robinson.jpg" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/images/references/Florence_Pugh.jpg" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/images/references/Jason_Mamoa.jpg" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/images/references/Mark_Ruffalo.jpg" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container">
+					<img src="./static/images/references/Timothee_Chalamet.jpg" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+			</div>
+         <p>
+             Given an ID-embedding as input, ID-to-3D can generate high-quality 3D reprensentation of a subject with state-of-the-art ID retention.
+         </p>
+     </div>
+    </div>
+</section>
+
+<!--
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{arxivID,
+      title={ID-to-3D: Expressive ID-guided 3D Heads via Score Distillation Sampling}, 
+      author={Francesca Babiloni and Alexandros Lattas and Jiankang Deng and Stefanos Zafeiriou},
+      year={2024},
+      eprint={eprint},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+-->
+
+
+<footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              The source code of this website is borrowed from <a
+                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
