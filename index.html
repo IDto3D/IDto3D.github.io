@@ -18,7 +18,10 @@
 			flex: 1 0 20%; /* This will allow 5 items in a row. Adjust as needed. */
 			margin: 0px;
 		}
-
+		.gif-container1 {
+			flex: 1 0 15%; /* This will allow 6 items in a row. Adjust as needed. */
+			margin: 0px;
+		}
         .gif-name {
             margin-top: 5px;
         }
@@ -179,6 +182,9 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">ID-consistent generation</h2>
+		<p>
+             Given an ID-embedding as input, ID-to-3D can generate high-quality 3D reprensentation of a subject with state-of-the-art ID retention.
+         </p>
          <div class="content has-text-centered">
             <div class="gif-row">
 				<div class="gif-container">
@@ -226,7 +232,210 @@
 				</div>
 			</div>
          <p>
-             Given an ID-embedding as input, ID-to-3D can generate high-quality 3D reprensentation of a subject with state-of-the-art ID retention.
+             ID-conditioned examples for celebrities identities. Conditioning images parsed from BingImages
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <!--<h2 class="title is-3">ID-consistent generation</h2>-->
+         <div class="content has-text-centered">
+            <div class="gif-row">
+				<div class="gif-container1">
+					<img src="./static/GIFs/NHPM_01_gmt.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/NHPM_02_gmt.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Arc2Face_01_gmt.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Arc2Face_02_gmt.gif">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/SD_01_gmt.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Selfie_01_gmt.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+			</div>
+			<div class="gif-row">
+				<div class="gif-container1">
+					<img src="./static/GIFs/NHPM_01_tex.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/NHPM_02_tex.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Arc2Face_01_tex.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Arc2Face_02_tex.gif">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/SD_01_tex.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+				<div class="gif-container1">
+					<img src="./static/GIFs/Selfie_01_tex.gif" alt="GIF 1">
+					<!--<div class="gif-name">Craig Robinson</div>-->
+				</div>
+			</div>
+			<div class="gif-row">
+				<!-- New image container for your picture -->
+				<div class="gif-container1">
+					<img src="./static/images/references/NHPM_01_img.png" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container1">
+					<img src="./static/images/references/NHPM_02_img.png" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container1">
+					<img src="./static/images/references/Arc2Face_01_img.png" style="width: 84%;"  alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container1">
+					<img src="./static/images/references/Arc2Face_02_img.png" style="width: 86%;"  alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container1">
+					<img src="./static/images/references/SD_01_img.png"  style="width: 87%;" alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+				<div class="gif-container1">
+					<img src="./static/images/references/Selfie_01_img.png" style="width: 84%;"  alt="Your Picture Description">
+					<div class="gif-name">Reference</div>
+				</div>
+			</div>
+         <p>
+             ID-conditioned examples for AI-generated identities. Conditioning created starting from the test cases of the NHPM dataset, Stable-Diffusion model, Arc2Face model or taken from a small set of selfies.
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Expressive ID-conditioned Generation</h2>
+		<p>
+             ID-to-3D creates a set of distinct and vivid expressions with robust ID consistency. It captures expressive fine grained details that convey a wide range of expressions.
+         </p>
+         <div class="content has-text-centered">
+			<div class="gif-row" style="display: flex;">
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/results_notceleb_neutral.png" alt="text-based customization" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			</div>
+         <p>
+             Renderings and normal maps in camera coordinates. Identities are created using one set of selfies (top) without text conditioning and one set of AI generated images (bottom) paired with the text prompt "with short buzzcut hairstyle".
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Expressive ID-conditioned Generation</h2>
+		<p>
+             ID-to-3D creates a set of distinct and vivid expressions with robust ID consistency. It captures expressive fine grained details that convey a wide range of expressions.
+         </p>
+         <div class="content has-text-centered">
+			<div class="gif-row" style="display: flex;">
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/results_notceleb_exp.png" alt="text-based customization" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			</div>
+         <p>
+             Renderings and normal maps in camera coordinates. Identities are created using one set of selfies (top) without text conditioning and one set of AI generated images (bottom) paired with the text prompt "with short buzzcut hairstyle".
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <!--<h2 class="title is-3">Expressive ID-conditioned Generation: Celebrities</h2>-->
+         <div class="content has-text-centered">
+			<div class="gif-row" style="display: flex;">
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/results_celeb_exp.png" alt="text-based customization" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			</div>
+         <p>
+             Renderings and normal maps in camera coordinates. Identities of celebrities : Will Smith, Anya Taylor Joy, and Kanye West.
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparisons with SDS methods</h2>
+		<p>
+             ID-to-3D sets a new state-of-the-art in the domain of SDS-based 3D face asset generation.
+         </p>
+         <div class="content has-text-centered">
+			<div class="gif-row" style="display: flex;">
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/comparison_geom.png" alt="comparison_geometry" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/comparison_texture.png" alt="comparison texture" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			</div>
+         <p>
+             Comparisons with recent SDS methods under the same rendering and lighting conditions. We use text-to-human avatar generation methods (Human-Norm, TADA, DreamFace) and methods that leverage both text and images to create 3D assets (Magic123, DreamCraft3D). 
+         </p>
+     </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- Results -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">ID-consistent text-based customization</h2>
+		<p>
+             ID-to-3D customize 3D objects with text-conditioning without altering the subject’s general identity.
+         </p>
+         <div class="content has-text-centered">
+			<div class="gif-row" style="display: flex;">
+			  <div class="gif-container" style="flex: 1; min-width: 0;">
+				<img src="./static/images/results_text_editing.png" alt="text-based customization" style="width: 100%; max-width: 100%; height: auto;">
+			  </div>
+			</div>
+         <p>
+             3D heads generated using different identity conditioning and textual prompt.
          </p>
      </div>
     </div>
